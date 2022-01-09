@@ -21,14 +21,13 @@ def upload(filepath):
 def file_list(num=0):
     count = 0
     all_files = os.listdir(data_path)
-    gifs = [x for x in all_files if x.split(".")[-1] == "gif"]
-    for i in gifs:
+    for i in all_files:
         count += 1
         if count > num:
             file_path = os.path.join(data_path, i)
             if upload(file_path):
                 time.sleep(0.5)
-                print("Total: {};From: {};Current:{}".format(len(gifs), num, count))
+                print("Total: {};From: {};Current:{}".format(len(all_files), num, count))
 
 
 def run():
